@@ -1,0 +1,18 @@
+= form_for @log do |f|
+  .study-date
+    =f.label '学習日付：'
+    = f.date_field :achieve_ymd
+  .study-hours
+    =f.label '学習時間：'
+    = f.number_field :achieve_time, min: '0', max: '24'
+    時間
+  = f.submit '登録する', class: 'send_btn'
+
+
+-# = select :page, :name, [["Railsの基礎", "rails_base"], ["Rubyの基礎", "ruby_base"]]
+
+-# %input{ type: "text", id: "datepicker"}
+-# %input{ type: "number" }
+-# , url: {controller: logs, action:create }
+
+-# = number_field_tag :achieve_time, nil, in: 1..24
