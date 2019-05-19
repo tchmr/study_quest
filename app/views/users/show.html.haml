@@ -1,0 +1,27 @@
+%h1 マイページ
+= current_user.name
+= link_to '学習ログを記録', new_user_log_path(current_user)
+%table.table
+  %thead
+    %tr
+      %th{scope: 'col'}
+        index
+      %th{scope: 'col'}
+        学習日付
+      %th{scope: 'col'}
+        学習時間
+      %th{scope: 'col'}
+      %th{scope: 'col'}
+  %tbody
+    - @logs.each.with_index(1) do |log, index|
+      %tr
+        %td
+          = index
+        %td
+          = log.achieve_ymd
+        %td
+          = log.achieve_time
+        %td
+          = link_to '編集', edit_user_log_path(current_user, log)
+        %td
+          = link_to '削除', "/users/#{current_user.id}/logs/#{log.id}", method: :delete
