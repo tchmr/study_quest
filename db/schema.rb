@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_011701) do
+ActiveRecord::Schema.define(version: 2019_05_19_071518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "leader", null: false
+    t.date "quest_start_ymd", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "logs", force: :cascade do |t|
     t.integer "achieve_time", null: false
@@ -26,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_011701) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "level", default: 0
+    t.integer "level", default: 1
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
