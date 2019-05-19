@@ -1,0 +1,18 @@
+%h1
+  ユーザー一覧
+%table.table
+  %thead
+    %tr
+      %th{scope: 'col'}
+        ユーザー名
+      %th{scope: 'col'}
+        レベル
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          = user.name
+        %td
+          = user.level
+
+

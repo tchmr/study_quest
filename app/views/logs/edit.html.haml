@@ -1,0 +1,11 @@
+%h1
+EDIT
+= form_for [@user, @log] do |f|
+  .study-date
+    =f.label '学習日付：'
+    = f.date_field :achieve_ymd
+  .study-hours
+    =f.label '学習時間：'
+    = f.number_field :achieve_time, min: '1', max: '24'
+    時間
+  = f.submit '更新する', class: 'btn btn_primary send_btn'

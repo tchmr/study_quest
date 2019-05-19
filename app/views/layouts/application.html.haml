@@ -1,0 +1,73 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title StudyQuest
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    %link{rel: "stylesheet", href: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity: "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin: "anonymous"}
+    %script{src: "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js", integrity: "sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy", crossorigin: "anonymous"}
+    %script{src: "https://code.jquery.com/jquery-3.3.1.slim.min.js", integrity: "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo", crossorigin: "anonymous"}
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js", integrity: "sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49", crossorigin: "anonymous"}
+
+    %link{rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"}
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"}
+  %body
+    %header.header.nabver.navbar-light.bg-light
+      %h1.navbar-brand
+        = link_to 'Study Quest', '/'
+      %button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+        %span(class="navbar-toggler-icon")
+      .collapse.navbar-collapse#navbarNav
+        %ul.navbar-nav.user_nav
+          - if user_signed_in?
+            %li.nav-item
+              = link_to current_user.name, "/users/#{current_user.id}", class: 'nav-link'
+            %li.nav-item
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+          - else
+            %li.nav-item
+              = link_to "ログイン", new_user_session_path, class: 'nav-link'
+            %li.nav-item
+              = link_to "新規登録", new_user_registration_path, class: 'nav-link'
+    = yield
+
+
+-# - if user_signed_in?
+-#   .user_nav
+-#     = current_user.name
+-#     %ul.user__info
+-#       %li
+-#         = link_to 'マイページ', "/users/#{current_user.id}"
+-#       %li
+-#         = link_to 'ログアウト', destroy_user_session_path, method: :delete
+-# - else
+-#   .grid-6
+-#     = link_to "ログイン", new_user_session_path, class: 'post'
+-#     = link_to "新規登録", new_user_registration_path, class: 'post'
+
+-# <nav class="navbar navbar-expand-lg navbar-light bg-light">
+-#   <a class="navbar-brand" href="#">Navbar</a>
+-#   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+-#     <span class="navbar-toggler-icon"></span>
+-#   </button>
+-#   <div class="collapse navbar-collapse" id="navbarNav">
+-#     <ul class="navbar-nav">
+-#       <li class="nav-item active">
+-#         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+-#       </li>
+-#       <li class="nav-item">
+-#         <a class="nav-link" href="#">Features</a>
+-#       </li>
+-#       <li class="nav-item">
+-#         <a class="nav-link" href="#">Pricing</a>
+-#       </li>
+-#       <li class="nav-item">
+-#         <a class="nav-link disabled" href="#">Disabled</a>
+-#       </li>
+-#     </ul>
+-#   </div>
+-# </nav>
