@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_105145) do
+ActiveRecord::Schema.define(version: 2019_05_20_025711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enemies", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.integer "hp", null: false
+    t.integer "rank", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +50,15 @@ ActiveRecord::Schema.define(version: 2019_05_19_105145) do
     t.index ["user_id"], name: "index_members_on_user_id"
   end
 
+  create_table "quests", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "enemy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enemy_id"], name: "index_quests_on_enemy_id"
+    t.index ["group_id"], name: "index_quests_on_group_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.integer "level", default: 1
@@ -59,4 +77,6 @@ ActiveRecord::Schema.define(version: 2019_05_19_105145) do
   add_foreign_key "logs", "users"
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
+  add_foreign_key "quests", "enemies"
+  add_foreign_key "quests", "groups"
 end
