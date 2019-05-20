@@ -1,0 +1,17 @@
+%h1 Enemies#show
+%h1
+  = @group.name
+.enemy-info
+  = @enemy.name
+  = "HP：5 / #{@full_hp}"
+.enemy-image
+  = image_tag @enemy.image, height: '500'
+.group-info.row
+  - @group.users.each do |user|
+    .group-info__user.col
+      .group-info__user--name
+        = user.name
+      .group-info__user--damage_cnt
+        = "攻撃を受けた回数：0回"
+      .group-info__user--achieve-time
+        = "学習時間：2h"

@@ -1,0 +1,14 @@
+%h1 Enemies#index
+.container
+  .row
+    - @enemies.each do |enemy|
+      .col
+        .enemy-image
+          = link_to group_enemy_quests_path(@group, enemy), method: :post do
+            = image_tag enemy.image, height: '400', width: '400'
+        .enemy-name
+          = enemy.name
+        .enemy-hp
+          = "HP：#{enemy.hp * @group.users.size}"
+        .enemy-hp-for-one
+          = "一人あたりの学習目安時間：#{enemy.hp}h"

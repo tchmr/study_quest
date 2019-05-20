@@ -1,14 +1,20 @@
 %h1
   group.index
-.group-create
-  .btn
-    = link_to 'グループ作成', new_group_path
-.group-delete
-  - if current_user.group && current_user.group.leader == current_user.id
+
+
+- if current_user.group
+  - if current_user.group.leader == current_user.id
+    .group-delete
+      .btn
+        = link_to 'グループ削除', "/groups/#{current_user.group.id}", method: :delete
+- else
+  .group-create
     .btn
-      = link_to 'グループ削除', "/groups/#{current_user.group.id}", method: :delete
+      = link_to 'グループ作成', new_group_path
+
 - @groups.each do |group|
-  = group.id
-  = group.name
-  - group.users.each do |user|
-    = user.name
+  %ul
+    = link_to "#{group.name}", group_path(group)
+    - group.users.order(:name).each do |user|
+      %li
+        = user.name

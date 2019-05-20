@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :logs, only: [:show, :new, :create, :edit, :update, :destroy]
   end
   resources :groups, only: [:index, :show, :new, :create, :destroy] do
-    resources :quests, only: [:index, :show, :create]
+    resources :enemies, only: [:index, :show] do
+      resources :quests, only: :create
+    end
   end
 end
