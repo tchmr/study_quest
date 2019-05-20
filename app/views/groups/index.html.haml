@@ -1,0 +1,14 @@
+%h1
+  group.index
+.group-create
+  .btn
+    = link_to 'グループ作成', new_group_path
+.group-delete
+  - if current_user.group && current_user.group.leader == current_user.id
+    .btn
+      = link_to 'グループ削除', "/groups/#{current_user.group.id}", method: :delete
+- @groups.each do |group|
+  = group.id
+  = group.name
+  - group.users.each do |user|
+    = user.name

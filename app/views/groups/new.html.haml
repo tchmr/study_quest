@@ -1,0 +1,25 @@
+%h1
+  group.new
+= form_for @group do |f|
+  - if @group.errors.any?
+    .group-form__errors
+      %h2="#{@group.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - @group.errors.full_messages.each do |message|
+          %li= message
+  .group-form__field.clearfix
+    .group-form__field--left
+      = f.label "グループ名", class: "group-form__label"
+    .group-form__field--right
+      = f.text_field :name, class: "group-form__input",placeholder: "グループ名を入力してください"
+  .group-form__field.clearfix
+    .group-form__field--left
+      = f.label "メンバー選択", class: "group-form__label"
+    .chat-group-form__field--right
+      = f.collection_check_boxes :user_ids, @users, :id, :name do |b|
+        = b.label { b.check_box + b.text }
+
+  .group-form__field.clearfix
+    .group-form__field--left
+    .group-form__field--right
+      = f.submit class: 'group-form__action-btn'
