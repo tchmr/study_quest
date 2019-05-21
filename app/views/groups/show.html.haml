@@ -3,7 +3,7 @@ group#show
   = @group.name
 - if @group.quest
   = link_to 'クエストを確認する', group_enemy_path(@group, @group.enemy)
-- else
+- elsif current_user.group.id == @group.id
   = link_to 'クエストに挑戦する', group_enemies_path(@group)
 %table.table
   %thead
@@ -14,8 +14,6 @@ group#show
         メンバー名
       %th{scope: 'col'}
         進捗率
-      %th{scope: 'col'}
-        目標未達
       %th{scope: 'col'}
         １日あたりの平均学習時間
       %th{scope: 'col'}
@@ -29,8 +27,6 @@ group#show
           = user.name
         %td
           \%
-        %td
-          回
         %td
           h
         %td

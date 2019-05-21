@@ -7,7 +7,7 @@
     = "残り日数：#{group.quest.remain_days}日"
     = "経過日数：#{group.quest.get_passed_days}日"
     = "開始日：#{group.quest.created_at.to_date}"
-    = "終了日：#{group.quest.created_at.to_date + 14}"
+    = "終了日：#{group.quest.get_quest_finish_date(group)}"
   %div
     = "一人あたりの学習目安時間：#{enemy.hp}h"
 
