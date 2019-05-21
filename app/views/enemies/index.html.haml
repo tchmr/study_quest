@@ -1,4 +1,4 @@
-%h1 Enemies#index
+Enemies#index
 .container
   .row
     - @enemies.each do |enemy|
@@ -9,6 +9,6 @@
         .enemy-name
           = enemy.name
         .enemy-hp
-          = "HP：#{enemy.hp * @group.users.size}"
+          = "HP：#{enemy.get_full_hp(@group)}"
         .enemy-hp-for-one
           = "一人あたりの学習目安時間：#{enemy.hp}h"

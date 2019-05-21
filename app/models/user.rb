@@ -12,4 +12,13 @@ class User < ApplicationRecord
     end
     return sum
   end
+
+  def get_quest_term_achieve_time
+    sum = 0
+    quest_logs = self.logs.where('achieve_ymd > ?', self.group.quest.created_at - 60 * 60 * 24)
+    quest_logs.each do |log|
+      sum += log.achieve_time
+    end
+    return sum
+  end
 end

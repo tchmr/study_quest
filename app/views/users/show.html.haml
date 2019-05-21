@@ -21,7 +21,8 @@
           = log.achieve_ymd
         %td
           = log.achieve_time
-        %td
-          = link_to '編集', edit_user_log_path(current_user, log)
-        %td
-          = link_to '削除', "/users/#{current_user.id}/logs/#{log.id}", method: :delete
+        - if current_user.id == log.user_id
+          %td
+            = link_to '編集', edit_user_log_path(current_user, log)
+          %td
+            = link_to '削除', "/users/#{current_user.id}/logs/#{log.id}", method: :delete
