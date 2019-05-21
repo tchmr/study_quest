@@ -19,4 +19,12 @@ class Quest < ApplicationRecord
   def get_quest_finish_date(group)
     (group.quest.created_at + 60 * 60 * 24 * 7).to_date
   end
+
+  def create_records
+    self.group.users.each do |user|
+      record = user.records.new({enemy_id: self.enemy.id, progress_rate: user.get_quest_progress_rate})
+      record.save
+    end
+  end
+
 end

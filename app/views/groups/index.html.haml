@@ -14,4 +14,4 @@ group#index
     = link_to "#{group.name}", group_path(group)
     - group.users.order(:name).each do |user|
       %li
-        = user.name
+        = link_to user.name, user_path(user)

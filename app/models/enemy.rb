@@ -1,6 +1,8 @@
 class Enemy < ApplicationRecord
   has_many :quests, dependent: :destroy
   has_many :groups, through: :quests
+  has_many :records, dependent: :destroy
+  has_many :users, through: :records
 
   # 基準HPをgroup.usersの人数倍する
   def get_full_hp(group)

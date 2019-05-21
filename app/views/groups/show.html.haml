@@ -12,12 +12,15 @@ group#show
         index
       %th{scope: 'col'}
         メンバー名
+      - if @group.quest
+        %th{scope: 'col'}
+          進捗率
+        %th{scope: 'col'}
+          １日あたりの平均学習時間（クエスト期間）
+        %th{scope: 'col'}
+          学習時間（クエスト期間）
       %th{scope: 'col'}
-        進捗率
-      %th{scope: 'col'}
-        １日あたりの平均学習時間
-      %th{scope: 'col'}
-        総学習時間
+        学習時間（累計）
   %tbody
     - @group.users.each.with_index(1) do |user, index|
       %tr
@@ -25,9 +28,12 @@ group#show
           = index
         %td
           = user.name
-        %td
-          \%
-        %td
-          h
+        - if @group.quest
+          %td
+            = "#{user.get_quest_progress_rate}%"
+          %td
+            = "#{user.get_average_time_per_day}h"
+          %td
+            = "#{user.get_quest_term_achieve_time}h"
         %td
           = "#{user.get_all_term_achieve_time}h"

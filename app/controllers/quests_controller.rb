@@ -24,6 +24,7 @@ class QuestsController < ApplicationController
       redirect_to group_enemy_path(@group, @enemy), notice: 'クエスト継続中です'
       return
     end
+    @group.quest.create_records
     @group.quest.destroy
   end
 

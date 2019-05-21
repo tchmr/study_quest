@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       resources :quests, only: [:create, :destroy]
     end
   end
+  resources :records, only: :create
 end
