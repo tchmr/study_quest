@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @logs = current_user.logs.order(achieve_ymd: :DESC)
+    @user = User.find(params[:id])
+    @logs = @user.logs.order(achieve_ymd: :DESC)
   end
 
 end

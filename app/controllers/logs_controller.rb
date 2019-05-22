@@ -15,19 +15,19 @@ class LogsController < ApplicationController
   def create
     log = current_user.logs.new(log_params)
     log.save
-    redirect_to_mypage
+    redirect_to_mypage('学習ログを記録しました')
   end
 
   def update
     log = Log.find(params[:id])
     log.update(log_params)
-    redirect_to_mypage
+    redirect_to_mypage('学習ログを更新しました')
   end
 
   def destroy
     log = Log.find(params[:id])
     log.destroy
-    redirect_to_mypage
+    redirect_to_mypage('学習ログを削除しました')
   end
 
   private
@@ -37,7 +37,7 @@ class LogsController < ApplicationController
     return edit_params
   end
 
-  def redirect_to_mypage
-    redirect_to user_path(current_user)
+  def redirect_to_mypage(note)
+    redirect_to user_path(current_user), notice: note
   end
 end

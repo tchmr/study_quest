@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  progress_rate: 1.5
+  user: one
+  enemy: one
+
+two:
+  progress_rate: 1.5
+  user: two
+  enemy: two
