@@ -36,4 +36,12 @@ class User < ApplicationRecord
       self.get_quest_term_achieve_time / quest_logs.size
     end
   end
+
+  def get_level
+    rank_point = 0
+    self.enemies.each do |enemy|
+      rank_point += enemy.rank * 3
+    end
+    rank_point + self.get_all_term_achieve_time
+  end
 end
