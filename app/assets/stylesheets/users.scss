@@ -1,3 +1,50 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+  padding:30px;
+  text-align: center;
+  .sub-heading {
+    margin-top: 20px;
+    font-size: 1.5rem;
+  }
+}
+
+.create-log {
+  margin: 20px;
+}
+
+.enemy-record {
+  &__enemies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    &__enemy {
+      text-align: center;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      padding: 20px;
+      box-shadow: 0 0 8px black;
+      &--image {
+        opacity: 1;
+        padding-bottom: 30px;
+      }
+      &--name {
+        font-weight: bold;
+        font-size: 20px;
+        padding-bottom: 15px;
+      }
+    }
+  }
+}
+
+.graph {
+  margin: 50px 0 150px;
+}
+
+.hidden {
+  display: none;
+}
+
+.logs-table {
+  margin: 50px 0 150px;
+}

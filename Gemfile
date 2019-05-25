@@ -66,6 +66,7 @@ gem 'haml-rails'
 gem 'erb2haml'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'pry-rails'
 gem 'devise'
+gem 'chart-js-rails'
+gem 'gon'

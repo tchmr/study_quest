@@ -10,7 +10,21 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require Chart.min
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('.toggle-btn').on('click', function() {
+    $('.wrapper').toggleClass('switch');
+    if($('.wrapper').hasClass('switch')) {
+      $('.table').hide();
+      $('.graph').show();
+    } else {
+      $('.table').show();
+      $('.graph').hide();
+    }
+  });
+});

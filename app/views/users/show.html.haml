@@ -1,42 +1,54 @@
-%h1.user_name
-  = "#{@user.name}さんのマイページ"
-%h2.user_level
-  = "Lv:#{@user.get_level}"
-- if current_user.id == @user.id
-  .create-log.btn
-    = link_to '学習ログを記録', new_user_log_path(@user)
-%table.table
-  %thead
-    %tr
-      %th{scope: 'col'}
-        index
-      %th{scope: 'col'}
-        学習日付
-      %th{scope: 'col'}
-        学習時間
-      - if @user.id == current_user.id
-        %th{scope: 'col'}
-        %th{scope: 'col'}
-  %tbody
-    - @logs.each.with_index(1) do |log, index|
-      %tr
-        %td
-          = index
-        %td
-          = log.achieve_ymd
-        %td
-          = log.achieve_time
-        - if @user.id == current_user.id
-          %td
-            = link_to '編集', edit_user_log_path(@user, log)
-          %td
-            = link_to '削除', "/users/#{@user.id}/logs/#{log.id}", method: :delete
-%h2
-  倒した敵
-- @user.enemies.each do |enemy|
-  %h2
-    = enemy.name
-  .enemy-rank
-    = "ランク：#{enemy.rank}"
-  .record-image
-    = image_tag enemy.image, height: '200', width: '200'
+.wrapper
+  .container
+    .heading
+      = "#{@user.name}の記録"
+      .sub-heading.heading__user-level
+        = "Lv #{@user.level}"
+    - if current_user.id == @user.id
+      .create-log.btn
+        = link_to '学習ログを記録', new_user_log_path(@user)
+    .btn.toggle-btn
+      表示切替
+    %table.table.logs-table
+      %thead
+        %tr
+          %th{scope: 'col'}
+            index
+          %th{scope: 'col'}
+            学習日付
+          %th{scope: 'col'}
+            学習時間
+          - if @user.id == current_user.id
+            %th{scope: 'col'}
+            %th{scope: 'col'}
+      %tbody
+        - @logs.each.with_index(1) do |log, index|
+          %tr
+            %td
+              = index
+            %td
+              = log.achieve_ymd
+            %td
+              = log.achieve_time
+            - if @user.id == current_user.id
+              %td
+                = link_to '編集', edit_user_log_path(@user, log), class: "btn"
+              %td
+                = link_to '削除', "/users/#{@user.id}/logs/#{log.id}", method: :delete, class: "btn"
+    .graph.hidden
+      %canvas(id="myChart" width="400" height="200")
+      :coffee
+        draw_graph();
+
+    .enemy-record
+      .heading
+        倒した敵リスト
+      .enemy-record__enemies
+        - @user.enemies.order(hp: :desc).each do |enemy|
+          .enemy-record__enemies__enemy
+            .enemy-record__enemies__enemy--image
+              = image_tag enemy.image, height: '200', width: '200'
+            .enemy-record__enemies__enemy--name
+              = enemy.name
+            .enemy-record__enemies__enemy--rank
+              = "ランク：#{enemy.rank}"

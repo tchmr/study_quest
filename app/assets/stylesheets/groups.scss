@@ -1,3 +1,21 @@
-// Place all the styles related to the groups controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.group {
+  box-shadow: 0 0 8px black;
+}
+
+.group-delete {
+  margin-bottom: 30px;
+}
+
+.group-create {
+  margin-bottom: 30px;
+}
+
+table {
+  text-align: center;
+}
+
+.group-form__field {
+  input[type="text"] {
+    width: 80%;
+  }
+}

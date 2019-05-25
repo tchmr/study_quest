@@ -1,18 +1,27 @@
-%h1
-  ユーザー一覧
-%table.table
-  %thead
-    %tr
-      %th{scope: 'col'}
-        ユーザー名
-      %th{scope: 'col'}
-        レベル
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td
-          = user.name
-        %td
-          = user.get_level
-
+.wrapper
+  .container
+    .heading
+      ユーザーランキング
+    %table.table
+      %thead
+        %tr
+          %th{scope: 'col'}
+            ユーザー名
+          %th{scope: 'col'}
+            レベル
+          %th{scope: 'col'}
+            総学習時間
+          %th{scope: 'col'}
+            クエスト成功回数
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td
+              = link_to user.name, user_path(user)
+            %td
+              = user.get_level
+            %td
+              = "#{user.get_all_term_achieve_time}h"
+            %td
+              = "#{user.enemies.size}回"
 

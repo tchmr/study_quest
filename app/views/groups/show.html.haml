@@ -1,39 +1,40 @@
-group#show
-%h1
-  = @group.name
-- if @group.quest
-  = link_to 'クエストを確認する', group_enemy_path(@group, @group.enemy)
-- elsif current_user.group.id == @group.id
-  = link_to 'クエストに挑戦する', group_enemies_path(@group)
-%table.table
-  %thead
-    %tr
-      %th{scope: 'col'}
-        index
-      %th{scope: 'col'}
-        メンバー名
-      - if @group.quest
-        %th{scope: 'col'}
-          進捗率
-        %th{scope: 'col'}
-          １日あたりの平均学習時間（クエスト期間）
-        %th{scope: 'col'}
-          学習時間（クエスト期間）
-      %th{scope: 'col'}
-        学習時間（累計）
-  %tbody
-    - @group.users.each.with_index(1) do |user, index|
-      %tr
-        %td
-          = index
-        %td
-          = user.name
-        - if @group.quest
-          %td
-            = "#{user.get_quest_progress_rate}%"
-          %td
-            = "#{user.get_average_time_per_day}h"
-          %td
-            = "#{user.get_quest_term_achieve_time}h"
-        %td
-          = "#{user.get_all_term_achieve_time}h"
+.wrapper
+  .container
+    %h1
+      = @group.name
+    - if @group.quest
+      = link_to 'クエストを確認する', group_enemy_path(@group, @group.enemy)
+    - elsif current_user.group.id == @group.id
+      = link_to 'クエストに挑戦する', group_enemies_path(@group)
+    %table.table
+      %thead
+        %tr
+          %th{scope: 'col'}
+            index
+          %th{scope: 'col'}
+            メンバー名
+          - if @group.quest
+            %th{scope: 'col'}
+              進捗率
+            %th{scope: 'col'}
+              １日あたりの平均学習時間（クエスト期間）
+            %th{scope: 'col'}
+              学習時間（クエスト期間）
+          %th{scope: 'col'}
+            学習時間（累計）
+      %tbody
+        - @group.users.each.with_index(1) do |user, index|
+          %tr
+            %td
+              = index
+            %td
+              = user.name
+            - if @group.quest
+              %td
+                = "#{user.get_quest_progress_rate}%"
+              %td
+                = "#{user.get_average_time_per_day}h"
+              %td
+                = "#{user.get_quest_term_achieve_time}h"
+            %td
+              = "#{user.get_all_term_achieve_time}h"

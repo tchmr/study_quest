@@ -1,17 +1,41 @@
-group#index
-- if current_user.group
-  - if current_user.group.leader == current_user.id
-    .group-delete
-      .btn
-        = link_to 'グループ削除', "/groups/#{current_user.group.id}", method: :delete
-- else
-  .group-create
-    .btn
-      = link_to 'グループ作成', new_group_path
+.wrapper
+  .container
+    - if current_user.group
+      - if @current_group.leader == current_user.id
+        .group-delete
+          .btn
+            = link_to 'グループ解散', "/groups/#{@current_group.id}", method: :delete
+    - else
+      .group-create
+        .btn
+          = link_to 'グループ結成', new_group_path
 
-- @groups.each do |group|
-  %ul
-    = link_to "#{group.name}", group_path(group)
-    - group.users.order(:name).each do |user|
-      %li
-        = link_to user.name, user_path(user)
+    .groups
+      - if @current_group
+        .groups__current_group
+          <所属グループ>
+          %ul.group
+            .group__name
+              = link_to "#{@current_group.name}", group_path(@current_group)
+              - if @current_group.quest
+                <クエスト挑戦中>
+              - else
+                <クエスト待機中>
+            .group__user-name
+              - @current_group.users.order(:name).each do |user|
+                %li
+                  = link_to user.name, user_path(user)
+      .groups__other-group
+        <他のグループ>
+        - @groups.each do |group|
+          %ul.group
+            .group__name
+              = link_to "#{group.name}", group_path(group)
+              - if group.quest
+                <クエスト挑戦中>
+              - else
+                <クエスト待機中>
+            .group__user-name
+              - group.users.order(:name).each do |user|
+                %li
+                  = link_to user.name, user_path(user)

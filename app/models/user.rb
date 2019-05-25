@@ -37,11 +37,19 @@ class User < ApplicationRecord
     end
   end
 
+  # (倒した敵のランク * 3)Lvアップ
+  # 学習時間5時間につき1Lvアップ
   def get_level
     rank_point = 0
     self.enemies.each do |enemy|
       rank_point += enemy.rank * 3
     end
-    rank_point + self.get_all_term_achieve_time
+    rank_point + self.get_all_term_achieve_time / 5
+  end
+
+  def update_level
+    user = User.find(self.id)
+    user[:level] = self.get_level
+    user.save
   end
 end
