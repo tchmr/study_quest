@@ -1,14 +1,17 @@
-Enemies#index
-.container
-  .row
-    - @enemies.each do |enemy|
-      .col
-        .enemy-image
-          = link_to group_enemy_quests_path(@group, enemy), method: :post do
-            = image_tag enemy.image, height: '400', width: '400'
-        .enemy-name
-          = enemy.name
-        .enemy-hp
-          = "HP：#{enemy.get_full_hp(@group)}"
-        .enemy-hp-for-one
-          = "一人あたりの学習目安時間：#{enemy.hp}h"
+.wrapper
+  .container
+    .heading
+      クエスト一覧
+    .enemies.row
+      - @enemies.each do |enemy|
+        .enemy.col-6
+          .enemy__image
+            = link_to group_enemy_quests_path(@group, enemy), method: :post do
+              = image_tag enemy.image
+          .enemy__status
+            .enemy__status--name
+              = enemy.name
+            .enemy__status--hp
+              = "HP：#{enemy.get_full_hp(@group)}"
+            .enemy__status--hp-for-one
+              = "一人あたりの学習目安時間：#{enemy.hp}h"

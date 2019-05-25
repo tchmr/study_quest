@@ -1,11 +1,20 @@
-%h1
-  NEW
-= form_for [@user, @log] do |f|
-  .study-date
-    =f.label '学習日付：'
-    = f.date_field :achieve_ymd
-  .study-hours
-    =f.label '学習時間：'
-    = f.number_field :achieve_time, min: '1', max: '24'
-    時間
-  = f.submit '登録する', class: 'btn btn_primary send_btn'
+.wrapper
+  .container
+    %h1.heading
+      学習ログの記録
+    = form_for [@user, @log] do |f|
+      .log-form__field.row
+        .log-form__field--left.col-2.study-date
+          = f.label '学習日付：'
+        .log-form__field--right.col-10.study-date
+          = f.date_field :achieve_ymd, class: 'form-field'
+      .log-form__field.row
+        .log-form__field--left.col-2.study-date.study-hours
+          = f.label '学習時間：'
+        .log-form__field--right.col-10.study-hours
+          = f.number_field :achieve_time, min: '1', max: '24', class: 'form-field'
+          時間
+      .log-form__field.row
+        .log-form__field--left.col-2.study-date.study-hours
+        .log-form__field--right.col-10.study-hours
+          = f.submit '登録する', class: 'btn btn-primary'

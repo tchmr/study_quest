@@ -1,9 +1,12 @@
 class GroupsController < ApplicationController
 
   def index
-    # @groups = Group.where(id: Member.all)
-    @groups = Group.all
-    # binding.pry
+    @current_group = current_user.group
+    @groups = if @current_group
+                Group.where.not(id: @current_group.id)
+              else
+                Group.all
+              end
   end
 
   def show
@@ -12,13 +15,8 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.where.not(id: current_user).order(:name)
-
-    # いずれのグループにも所属していないメンバーのみ抽出したい
-    # query = Member.all
-    # @users = User.where.not(id: [current_user, query]).order(:name)
-    # binding.pry
-
+    members_user_ids = Member.all.map { |member| member.user_id } << current_user.id
+    @users = User.where.not(id: members_user_ids).order(:name)
   end
 
   def create
