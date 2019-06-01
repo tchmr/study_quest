@@ -13,7 +13,7 @@
 html {
   height: 100%;
   body {
-    background-image: url('landscapes/compass');
+    background-image: image-url('landscapes/compass');
     background-size: cover;
     height: 100%;
     color: #1C1B17;
@@ -58,7 +58,7 @@ header {
 .container {
   margin: 50px auto;
   padding: 30px;
-  background-image: url('landscapes/paper-horizon');
+  background-image: image-url('landscapes/paper-horizon');
 }
 
 .notification {

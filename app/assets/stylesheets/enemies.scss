@@ -46,7 +46,7 @@
   .enemy-image {
     height: calc(100% - 200px);
     text-align: center;
-    background-image: url('landscapes/desert');
+    background-image: image-url('landscapes/desert');
     background-size: cover;
     img {
       width: auto;
