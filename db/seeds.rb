@@ -18,7 +18,7 @@
   ['ドラゴン使い', 'dragon-woman.png', 25, 2],
   ['メタルドラゴン', 'dragon-brown.png', 30, 2],
   ['ブラックドラゴン', 'dragon-black.png', 40, 3],
-  ['圧倒的な絶望', '/public/enemy/panther.jpg', 50, 3]
+  ['森の番人', 'panther.jpg', 50, 3]
 ].each do |name, image, hp, rank|
   Enemy.create!(
     { name: name, image: image, hp: hp, rank: rank }
