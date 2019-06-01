@@ -4,7 +4,7 @@
       = @group.name
     - if @group.quest
       = link_to 'クエストを確認する', group_enemy_path(@group, @group.enemy)
-    - elsif current_user.group.id == @group.id
+    - elsif current_user.group && current_user.group.id == @group.id
       = link_to 'クエストに挑戦する', group_enemies_path(@group)
     %table.table
       %thead
