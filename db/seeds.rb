@@ -8,17 +8,17 @@
 
 # name, image, hp, rank
 [
-  ['monster-green', '/public/enemy/monster-green.png', 3, 1],
-  ['monster-pink', '/public/enemy/monster-pink.png', 5, 1],
-  ['angry_boss', '/public/enemy/angry_boss.jpg', 8, 1],
-  ['centaur', '/public/enemy/centaur.png', 10, 1],
-  ['demon', '/public/enemy/demon.png', 12, 1],
-  ['dragon-pop', '/public/enemy/dragon-pop.jpg', 15, 1],
-  ['werewolf', '/public/enemy/werewolf.png', 20, 2],
-  ['dragon-woman', '/public/enemy/dragon-woman.png', 25, 2],
-  ['dragon-brown', '/public/enemy/dragon-brown.png', 30, 2],
-  ['dragon-black', '/public/enemy/dragon-black.png', 40, 3],
-  ['panther', '/public/enemy/panther.jpg', 50, 3]
+  ['グリーンモンスター', 'monster-green.png', 3, 1],
+  ['ヘッドホンモンスター', 'monster-pink.png', 5, 1],
+  ['不機嫌な上司', 'angry_boss.jpg', 8, 1],
+  ['ケンタウルスのカップル', 'centaur.png', 10, 1],
+  ['デーモン', 'demon.png', 12, 1],
+  ['トゥーンドラゴン', 'dragon-pop.jpg', 15, 1],
+  ['オオカミ男', 'werewolf.png', 20, 2],
+  ['ドラゴン使い', 'dragon-woman.png', 25, 2],
+  ['メタルドラゴン', 'dragon-brown.png', 30, 2],
+  ['ブラックドラゴン', 'dragon-black.png', 40, 3],
+  ['圧倒的な絶望', '/public/enemy/panther.jpg', 50, 3]
 ].each do |name, image, hp, rank|
   Enemy.create!(
     { name: name, image: image, hp: hp, rank: rank }
