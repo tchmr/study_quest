@@ -1,4 +1,6 @@
 class QuestsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     group = Group.find(params[:group_id])
     enemy = Enemy.find(params[:enemy_id])

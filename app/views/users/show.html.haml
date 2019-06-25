@@ -1,14 +1,16 @@
 .wrapper
   .container
     .heading
-      = "#{@user.name}の記録"
+      = "#{@user.name}さんの記録"
       .sub-heading.heading__user-level
         = "Lv #{@user.level}"
-    - if current_user.id == @user.id
-      .create-log.btn
-        = link_to '学習ログを記録', new_user_log_path(@user)
-    .btn.toggle-btn
-      表示切替
+    .container__btns
+      - if current_user && current_user.id == @user.id
+        = link_to new_user_log_path(@user) do
+          .create-log.btn
+            学習ログを記録
+      .btn.toggle-btn
+        表示切替
     %table.table.logs-table
       %thead
         %tr
@@ -18,7 +20,7 @@
             学習日付
           %th{scope: 'col'}
             学習時間
-          - if @user.id == current_user.id
+          - if current_user && @user.id == current_user.id
             %th{scope: 'col'}
             %th{scope: 'col'}
       %tbody
@@ -30,7 +32,7 @@
               = log.achieve_ymd
             %td
               = log.achieve_time
-            - if @user.id == current_user.id
+            - if current_user && @user.id == current_user.id
               %td
                 = link_to '編集', edit_user_log_path(@user, log), class: "btn"
               %td

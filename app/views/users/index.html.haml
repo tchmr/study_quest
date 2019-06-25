@@ -17,7 +17,7 @@
         - @users.each do |user|
           %tr
             %td
-              = link_to user.name, user_path(user)
+              = link_to user.name, user_path(user), data: {turbolinks: false}
             %td
               = user.get_level
             %td

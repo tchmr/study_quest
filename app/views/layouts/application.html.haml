@@ -18,7 +18,7 @@
   %body
     %header.header.nabver.navbar-dark.bg-dark.navbar-expand-sm
       .navbar-brand.text-white
-        = link_to 'Study Quest', '/'
+        = link_to 'Study Quest', root_path
       .float-right
         %button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
           %span(class="navbar-toggler-icon")
@@ -28,7 +28,7 @@
               = link_to 'ランキング', users_path, class: 'nav-link'
             - if user_signed_in?
               %li.nav-item
-                = link_to 'マイページ', "/users/#{current_user.id}", class: 'nav-link', data: {"turbolinks" => false}
+                = link_to 'マイページ', "/users/#{current_user.id}", class: 'nav-link', data: {turbolinks: false}
               %li.nav-item
                 = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
             - else

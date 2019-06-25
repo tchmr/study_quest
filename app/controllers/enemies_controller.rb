@@ -1,4 +1,6 @@
 class EnemiesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @group = Group.find(params[:group_id])
     @enemies = Enemy.order(:hp)

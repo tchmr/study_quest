@@ -1,4 +1,8 @@
 .notification {
+  padding-top: 50px;
+  opacity: 0.9;
+  transition: 3s;
+
   .notice {
     background-color: $light_blue;
     color: $white;

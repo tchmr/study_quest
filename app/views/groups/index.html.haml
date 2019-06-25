@@ -3,8 +3,9 @@
     - if current_user.group
       - if @current_group.leader == current_user.id
         .group-delete
-          .btn
-            = link_to 'グループ解散', "/groups/#{@current_group.id}", method: :delete
+          = link_to "/groups/#{@current_group.id}", method: :delete do
+            .btn
+              グループ解散
     - else
       .group-create
         .btn

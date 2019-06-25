@@ -5,6 +5,7 @@
 @import "./logs";
 @import "./groups";
 @import "./enemies";
+@import "./top";
 
 * {
   box-sizing: border-box;
@@ -51,18 +52,11 @@ header {
   }
 }
 
-// .wrapper {
-//   height: calc(100% - 50px);
-// }
-
 .container {
   margin: 50px auto;
   padding: 30px;
   background-image: image-url('landscapes/paper-horizon');
-}
-
-.notification {
-  padding-top: 50px;
+  border-radius: 5px;
 }
 
 .btn {

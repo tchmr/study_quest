@@ -1,0 +1,26 @@
+.wrapper
+  .container
+    .heading
+      メインメニュー
+    %ul.top-btns
+      %li
+        = link_to new_user_log_path(current_user) do
+          .btn.top-btn
+            学習ログを記録
+      %li
+        - if @quest.present?
+          = link_to group_enemy_path(current_user.group, @quest.enemy) do
+            .btn.top-btn
+              クエスト状況
+        - elsif @group.present?
+          = link_to group_enemies_path(current_user.group) do
+            .btn.top-btn
+              クエストに挑戦！
+        - else
+          = link_to new_group_path do
+            .btn.top-btn
+              グループを作成してクエストに挑戦！
+      %li
+        = link_to groups_path do
+          .btn.top-btn
+            グループ一覧
