@@ -9,6 +9,7 @@
 
 * {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 html {
@@ -35,26 +36,30 @@ header {
   height: 50px;
   position: fixed;
   z-index: 1000;
-  opacity: 0.9;
   .navbar-brand {
     line-height: 50px;
     padding: 0 30px;
     a {
+      font-family: fantasy;
       color: #fff;
       font-size: 32px;
     }
   }
   .float-right {
-    .nav-link {
-      line-height: 50px;
-      padding: 0;
+    .nav-item {
+      margin: 0 20px;
+      .nav-link {
+        font-family: fantasy;
+        line-height: 50px;
+        padding: 0;
+      }
     }
   }
 }
 
 .container {
   margin: 50px auto;
-  padding: 30px;
+  padding: 30px 30px 50px;
   background-image: image-url('landscapes/paper-horizon');
   border-radius: 5px;
 }
