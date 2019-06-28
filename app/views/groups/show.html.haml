@@ -1,11 +1,11 @@
 .wrapper
   .container
-    %h1
+    %h1.heading-group-name
       = @group.name
     - if @group.quest
-      = link_to 'クエストを確認する', group_enemy_path(@group, @group.enemy)
+      = link_to 'クエストを確認する', group_enemy_path(@group, @group.enemy), class: 'quest'
     - elsif current_user.group && current_user.group.id == @group.id
-      = link_to 'クエストに挑戦する', group_enemies_path(@group)
+      = link_to 'クエストに挑戦する', group_enemies_path(@group), class: 'quest'
     %table.table
       %thead
         %tr

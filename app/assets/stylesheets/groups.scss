@@ -1,5 +1,19 @@
 .group {
   box-shadow: 0 0 8px black;
+  &__name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    .on-quest {
+      color: red;
+      display: inline-block;
+      margin-left: 15px;
+    }
+    .off-quest {
+      color: blue;
+      display: inline-block;
+      margin-left: 15px;
+    }
+  }
 }
 
 .group-delete {
@@ -18,4 +32,14 @@ table {
   input[type="text"] {
     width: 80%;
   }
+}
+
+.heading-group-name {
+  font-weight: bold;
+}
+
+.quest {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 30px;
 }

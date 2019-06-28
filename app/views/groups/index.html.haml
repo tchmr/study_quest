@@ -19,9 +19,11 @@
             .group__name
               = link_to "#{@current_group.name}", group_path(@current_group)
               - if @current_group.quest
-                <クエスト挑戦中>
+                .on-quest
+                  <クエスト挑戦中>
               - else
-                <クエスト待機中>
+                .off-quest
+                  <クエスト待機中>
             .group__user-name
               - @current_group.users.order(:name).each do |user|
                 %li
@@ -33,9 +35,11 @@
             .group__name
               = link_to "#{group.name}", group_path(group)
               - if group.quest
-                <クエスト挑戦中>
+                .on-quest
+                  <クエスト挑戦中>
               - else
-                <クエスト待機中>
+                .off-quest
+                  <クエスト待機中>
             .group__user-name
               - group.users.order(:name).each do |user|
                 %li
