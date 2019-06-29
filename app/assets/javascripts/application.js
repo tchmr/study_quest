@@ -17,9 +17,7 @@
 //= require_tree .
 
 $(function() {
-  console.log('jquery test before click');
   $('.toggle-btn').on('click', function() {
-    console.log('jquery test after click');
     $('.wrapper').toggleClass('switch');
     if($('.wrapper').hasClass('switch')) {
       $('.table').hide();

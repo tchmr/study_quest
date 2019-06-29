@@ -1,5 +1,4 @@
 window.draw_graph = ->
-    console.log('coffee test')
     ctx = document.getElementById("myChart").getContext('2d')
     barNum = gon.logs_time.length
     bgColors = new Array(barNum)
