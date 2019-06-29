@@ -1,13 +1,80 @@
-.container {
-  .top-btns {
-    text-align: center;
-    padding: 0;
-    margin: 0;
+// top
+.top-btns {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  .top-btn {
+    margin: 20px auto;
+    padding: 10px;
+    width: 70%;
+    font-size: 1.5rem;
+  }
+}
+
+// about
+.article {
+  padding: 80px;
+  img {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  &__description {
+    p {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    p:last-child {
+      margin-bottom: 100px;
+    }
     .top-btn {
-      margin: 20px auto;
-      padding: 10px;
-      width: 70%;
+      font-family: fantasy;
+    }
+  }
+}
+
+// howto
+.howto {
+  &__index {
+    width: 300px;
+    margin: 80px auto 0;
+    box-shadow: 0 0 8px black;
+    padding: 20px 40px;
+    text-align: center;
+    &__heading {
+      font-family: fantasy;
+      font-weight: bold;
       font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    li {
+      text-align: left;
+      font-size: 1.2rem;
+    }
+  }
+  &__lists {
+    padding: 0;
+    text-align: center;
+    &__list {
+      font-weight: bold;
+      &__heading {
+        font-size: 1.6rem;
+        padding: 100px 0 30px;
+      }
+      &-image {
+        img {
+          width: 80%;
+          border: 10px solid white;
+          margin: 10px 0;
+        }
+      }
+      &-description {
+        p {
+          margin: 20px 0 50px;
+          line-height: 40px;
+          font-size: 1.2rem;
+        }
+      }
     }
   }
 }

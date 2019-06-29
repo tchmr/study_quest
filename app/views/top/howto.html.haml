@@ -1,0 +1,67 @@
+.wrapper
+  .container
+    .howto
+      .heading
+        \- How to play Study Quest -
+      .howto__index
+        .howto__index__heading
+          \- index -
+        %ol.howto__index__lists
+          %li.howto__index__lists__list
+            = link_to '学習ログをつける', '#log'
+          %li.howto__index__lists__list
+            = link_to 'グループを結成する', '#group'
+          %li.howto__index__lists__list
+            = link_to 'クエストに挑戦する', '#quest'
+      %ul.howto__lists
+        %li#log.howto__lists__list
+          .howto__lists__list__heading
+            学習ログをつける
+          .howto__lists__list-image
+            = image_tag 'howto-menu-no-group'
+          .howto__lists__list-description
+            %p
+              早速、学習記録をつけてみましょう。<br>
+              「学習ログを記録」から記録画面にアクセスします。
+          .howto__lists__list-image
+            = image_tag 'howto-log'
+          .howto__lists__list-description
+            %p
+              日付と時間を入力し、登録します。
+          .howto__lists__list-image
+            = image_tag 'howto-log-table'
+            = image_tag 'howto-log-graph'
+          .howto__lists__list-description
+            %p 登録した記録は表とグラフで確認することができます。
+        %li#group.howto__lists__list
+          .howto__lists__list__heading
+            グループを結成する
+          .howto__lists__list-image
+            = image_tag 'howto-menu-no-group'
+          .howto__lists__list-description
+            %p 「グループを作成してクエストに挑戦！」からグループ作成画面にアクセスします。
+          .howto__lists__list-image
+            = image_tag 'howto-group'
+          .howto__lists__list-description
+            %p グループメンバーを選択してください。※ 1人だけのグループを作成することも可能です。
+        %li#quest.howto__lists__list
+          .howto__lists__list__heading
+            クエストに挑戦する
+          .howto__lists__list-image
+            = image_tag 'howto-menu-on-group'
+          .howto__lists__list-description
+            %p
+              グループを作成したら、クエストに挑戦しましょう。<br>
+              「クエストに挑戦！」からクエスト一覧画面にアクセスします。
+          .howto__lists__list-image
+            = image_tag 'howto-quest-index'
+          .howto__lists__list-description
+            %p 挑戦したいクエストを選択してください。
+          .howto__lists__list-image
+            = image_tag 'howto-battle'
+          .howto__lists__list-description
+            %p
+              クエストを選択すると、対戦画面に遷移します。<br>
+              クエスト開始から一定期間内に敵のHP分の学習時間を達成すればクエスト成功です。<br>
+              クエストの状況はメインメニューの「クエスト状況」から確認することができます。<br><br>
+              毎日学習の記録をしていきましょう。

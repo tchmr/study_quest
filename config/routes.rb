@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'top#top'
+  root to: 'top#about'
   get '/top', to: 'top#top'
   get '/about', to: 'top#about'
+  get '/howto', to: 'top#howto'
   get '/groups/:group_id/enemies/:enemy_id/quests/win', to: 'quests#win'
   get '/groups/:group_id/enemies/:enemy_id/quests/lose', to: 'quests#lose'
   resources :users, only: [:index, :show] do

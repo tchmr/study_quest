@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-  before_action :authenticate_user!, except: :about
+  before_action :authenticate_user!, except: [:about, :howto]
 
   def top
     @group = current_user.group
@@ -9,5 +9,9 @@ class TopController < ApplicationController
   end
 
   def about
+    redirect_to top_path if current_user
+  end
+
+  def howto
   end
 end
