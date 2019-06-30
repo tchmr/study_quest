@@ -3,7 +3,7 @@
     .heading
       = "#{@user.name}さんの記録"
       .sub-heading.heading__user-level
-        = "Lv #{@user.level}"
+        = "Lv #{@user.get_level}"
     .container__btns
       - if current_user && current_user.id == @user.id
         = link_to new_user_log_path(@user) do
