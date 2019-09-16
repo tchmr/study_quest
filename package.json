@@ -2,6 +2,8 @@
   "name": "study_quest",
   "private": true,
   "dependencies": {
-    "chart.js": "^2.7.1"
+    "@rails/actiontext": "^6.0.0",
+    "chart.js": "^2.7.1",
+    "trix": "^1.0.0"
   }
 }
